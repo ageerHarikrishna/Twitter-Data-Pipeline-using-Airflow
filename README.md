@@ -19,9 +19,11 @@ This project demonstrates an end-to-end data engineering pipeline using Airflow 
 
 ###Airflow DAG Setup:
 The Directed Acyclic Graph (DAG) in Airflow is crucial for scheduling and managing the ETL tasks. The DAG defines the workflow and the dependencies between tasks. Below is a critical block of code from the twitter_dag.py file:
+
 ###Using Tweepy for Twitter API Requests:
 Tweepy is a Python library used to interact with the Twitter API. It simplifies the process of making API requests, handling authentication, and parsing responses.
 Rate Limits: The Twitter API has rate limits that restrict the number of requests you can make within a 15-minute window. For example, the user timeline endpoint (user_timeline) is limited to 900 requests per 15-minute window. It is essential to handle rate limits in your code to avoid exceeding these limits and receiving errors.
+
 ###ETL Process:This function authenticates with the Twitter API, retrieves tweets from a specified user, processes the tweet data, and saves it into a CSV file.
 ```python
 api = tweepy.API(auth)
