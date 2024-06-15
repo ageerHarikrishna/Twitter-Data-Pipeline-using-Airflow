@@ -17,47 +17,16 @@ This project demonstrates an end-to-end data engineering pipeline using Airflow 
 - **Data Loading**: Saves the transformed data into a CSV file for further analysis.
 - **Airflow Orchestration**: Uses Airflow to schedule and manage the ETL workflow.
 
-## Getting Started
-### Prerequisites
-- Python 3.7 or higher
-- Apache Airflow
-- Twitter Developer Account (for API keys)
 
-### Installation
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/twitter-data-pipeline.git
-   ```
-2. Navigate to the project directory:
-   ```bash
-   cd twitter-data-pipeline
-   ```
-3. Install the required libraries:
-   ```bash
-   pip install -r requirements.txt
-   ```
+    Airflow DAG Setup:
+        The Directed Acyclic Graph (DAG) in Airflow is crucial for scheduling and managing the ETL tasks. The DAG defines the workflow and the dependencies between tasks. Below is a critical block of code from the twitter_dag.py file:
 
-### Setup
-1. Set up your Twitter API keys in the `twitter_etl.py` file:
-   ```python
-   access_key = "your_access_key" 
-   access_secret = "your_access_secret" 
-   consumer_key = "your_consumer_key"
-   consumer_secret = "your_consumer_secret"
-   ```
-2. Initialize the Airflow database:
-   ```bash
-   airflow db init
-   ```
-3. Start the Airflow web server and scheduler:
-   ```bash
-   airflow webserver --port 8080
-   airflow scheduler
-   ```
+    Using Tweepy for Twitter API Requests:
+        Tweepy is a Python library used to interact with the Twitter API. It simplifies the process of making API requests, handling authentication, and parsing responses.
+        Rate Limits: The Twitter API has rate limits that restrict the number of requests you can make within a 15-minute window. For example, the user timeline endpoint (user_timeline) is limited to 900 requests per 15-minute window. It is essential to handle rate limits in your code to avoid exceeding these limits and receiving errors.
 
-### Usage
-1. Access the Airflow web UI at `http://localhost:8080`.
-2. Trigger the `twitter_dag` to start the ETL process.
+    ETL Process:
+        This function authenticates with the Twitter API, retrieves tweets from a specified user, processes the tweet data, and saves it into a CSV file.
 
 ## Business Value
 This pipeline provides real-time insights into consumer sentiment and trends by analyzing Twitter data. It enables data-driven marketing strategies, increases customer engagement, and allows rapid responses to public comments, leading to better decision-making and improved overall business performance.
